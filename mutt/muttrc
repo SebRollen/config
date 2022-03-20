@@ -1,0 +1,73 @@
+# Load configurations
+source ~/.mutt/gpg.rc
+
+# Load gpg encrypted IMAP and SMTP app passwords
+source "gpg --decrypt ~/.mutt/app-password.gpg |"
+source ~/.mutt/colors
+
+# Display the fields in this order
+hdr_order date subject from to cc
+# Allow sending emails with no subject
+set abort_nosubject=no
+set editor=vim
+set header_cache="~/.mutt/cache/headers"
+set date_format="!%b %d, %Y at %I:%M%p %Z"
+set mail_check=60 # If we are actively using mutt, only search for mail every minute
+set timeout=5 # Update folder status often (every 5 seconds) when inactive
+set nobeep
+set beep_new
+set copy=no # No need to save to `record` as gmail does that already
+set realname="Sebastian Rollén"
+set from=rollenseb@gmail.com
+# Other email addresses that should be marked as "me"
+alternates -group me sebrollen@hotmail.com seb@rollen.io
+alternates -group me -group work sebastian.rollen@betterment.com seb@overmu.se sebastian.rollen@montroseconsultingllc.com
+set charset = "utf-8"
+# http://nullprogram.com/blog/2017/06/15/
+set text_flowed
+
+set folder = "imaps://rollenseb@imap.gmail.com:993"
+set smtp_url = "smtps://rollenseb@smtp.gmail.com:465/"
+set smtp_authenticators = 'gssapi:login'
+
+# Setup folders (specifically, use gmails format)
+set spoolfile = "+INBOX"
+set record = "+[Gmail]/Sent%20Mail"
+set trash = "+[Gmail]/Trash"
+set postponed = "+[Gmail]/Drafts"
+
+# Sorting and threading
+set sort = "reverse-date-received"
+set strict_threads="yes" # Don't automatically group messages with the same subject
+set collapse_unread="no" # Don't collapse a thread if there's an unread message in it
+set sort_browser="reverse-date"
+set sort_aux="reverse-last-date-received" # Bring threads with recent messages to top
+
+# SSL hardening
+set ssl_force_tls = yes
+set ssl_starttls = yes
+set ssl_use_sslv2 = no
+set ssl_use_sslv3 = no
+set ssl_use_tlsv1 = no
+set ssl_use_tlsv1_1 = no
+set ssl_use_tlsv1_2 = yes
+set ssl_use_tlsv1_3 = yes
+set ssl_verify_dates = yes
+set ssl_verify_host = yes
+set ssl_usesystemcerts = yes
+
+set mailcap_path = ~/.mutt/mailcap
+# html email
+auto_view text/enriched text/html  # view html automatically
+alternative_order text/plain text/enriched text/html # save html for last
+
+# -- bindings -- 
+# G to get mail
+bind index G imap-fetch-mail
+macro index gd "<change-folder>$postponed<enter>" "go to drafts"
+macro index gs "<change-folder>$record<enter>" "go to sent"
+macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
+macro index gt "<change-folder>$trash<enter>" "go to trash""
+
+bind pager j next-line
+bind pager k previous-line
