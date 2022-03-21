@@ -52,6 +52,7 @@ delete_and_relink "gitconfig"
 delete_and_relink "tmux.conf"
 delete_and_relink "mutt"
 delete_and_relink "zshenv"
+delete_and_relink "zshrc"
 pushd gnupg
 delete_and_relink "gpg.rc" "gnupg/"
 delete_and_relink "gpg.conf" "gnupg/"
