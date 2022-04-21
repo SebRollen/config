@@ -1,0 +1,17 @@
+set imap_pass=`pass AppPassword/sebastian@commonpaper.com`
+set smtp_pass=`pass AppPassword/sebastian@commonpaper.com`
+set header_cache="~/.mutt/commonpaper/cache/headers"
+set from=sebastian@commonpaper.com
+# Other email addresses that should be marked as "me"
+alternates -group me rollenseb@gmail.com
+
+set folder = "imaps://sebastian@commonpaper.com@imap.gmail.com:993/"
+set smtp_url = "smtps://sebastian@commonpaper.com@smtp.gmail.com:465/"
+set smtp_authenticators = 'gssapi:login'
+
+# Setup folders (specifically, use gmails format)
+set spoolfile = "+INBOX"
+set record = "+[Gmail]/Sent%20Mail"
+set trash = "+[Gmail]/Trash"
+set postponed = "+[Gmail]/Drafts"
+

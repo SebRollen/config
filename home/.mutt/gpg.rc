@@ -1,0 +1,16 @@
+# MUTT GPG configuration
+
+# Use GPGME
+set crypt_use_gpgme = yes
+
+# Don't sign messages by default
+set crypt_autosign = no
+# Sign replies on signed emails
+set crypt_replysign
+# Encrypt replies to PGP emails by default
+set crypt_replyencrypt = yes
+# Sign replies on necrypted mail
+set crypt_replysignencrypted
+
+# Timeout
+set pgp_timeout = 1800

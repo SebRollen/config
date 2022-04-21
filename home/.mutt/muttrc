@@ -1,0 +1,79 @@
+# Load configurations
+source ~/.mutt/gpg.rc
+
+source ~/.mutt/colors
+
+# Folder hooks
+folder-hook 'account-personal.rc' 'source ~/.mutt/account-personal.rc' 
+folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc' 
+
+# Default account
+source ~/.mutt/account-personal.rc 
+
+# Macros for switching accounts
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>imaps://rollenseb@gmail.com@imap.gmail.com:993<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>imaps://sebastian@commonpaper.com@imap.gmail.com:993<enter>'
+
+# Display the fields in this order
+hdr_order date subject from to cc
+my_hdr X-PGP-Key: https://rollen.io/sebrollen.pgp.asc
+# Allow sending emails with no subject
+set abort_nosubject=no
+set editor=vim
+set date_format="!%b %d, %Y at %I:%M%p %Z"
+set mail_check=60 # If we are actively using mutt, only search for mail every minute
+set timeout=5 # Update folder status often (every 5 seconds) when inactive
+set nobeep
+set beep_new
+set copy=no # No need to save to `record` as gmail does that already
+set realname="Sebastian Rollén"
+set charset = "utf-8"
+set tilde
+# http://nullprogram.com/blog/2017/06/15/
+set text_flowed
+set query_command = "khard email --parsable %s"
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
+# Sorting and threading
+set sort = "threads"
+set strict_threads="yes" # Don't automatically group messages with the same subject
+set collapse_unread="no" # Don't collapse a thread if there's an unread message in it
+set sort_browser="reverse-date"
+set sort_aux="reverse-last-date-received" # Bring threads with recent messages to top
+
+# SSL hardening
+set ssl_force_tls = yes
+set ssl_starttls = yes
+set ssl_use_sslv2 = no
+set ssl_use_sslv3 = no
+set ssl_use_tlsv1 = no
+set ssl_use_tlsv1_1 = no
+set ssl_use_tlsv1_2 = yes
+set ssl_use_tlsv1_3 = yes
+set ssl_verify_dates = yes
+set ssl_verify_host = yes
+set ssl_usesystemcerts = yes
+
+set mailcap_path = ~/.mutt/mailcap
+# html email
+auto_view text/enriched text/html  # view html automatically
+alternative_order text/plain text/enriched text/html # save html for last
+
+# -- bindings -- 
+# G to get mail
+bind index G imap-fetch-mail
+macro index gd "<change-folder>$postponed<enter>" "go to drafts"
+macro index gs "<change-folder>$record<enter>" "go to sent"
+macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
+macro index gt "<change-folder>$trash<enter>" "go to trash""
+macro index,pager A \
+  "<pipe-message>khard add-email<return>" \
+  "add the sender email address to khard"
+
+# Automatically sign emails with attachments
+# https://m7i.org/tips/mutt-pgp-sign-attachment/
+macro compose a "<pgp-menu>s<attach-file>"
+
+bind pager j next-line
+bind pager k previous-line

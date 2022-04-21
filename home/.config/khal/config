@@ -1,0 +1,21 @@
+[calendars]
+
+[[personal]]
+path = /Users/rollen/.calendars/rollenseb@gmail.com
+type = calendar
+color = brown
+
+[[family]]
+path = /Users/rollen/.calendars/family02719955292050831019@group.calendar.google.com
+type = calendar
+color = light blue
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
+
+[default]
+default_calendar = personal
