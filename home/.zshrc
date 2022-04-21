@@ -15,3 +15,5 @@ alias ls=exa
 source /Users/rollen/.config/broot/launcher/bash/br
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+export HOMESHICK_DIR=/usr/local/opt/homeshick
+source "/opt/homebrew/opt/homeshick/homeshick.sh"
