@@ -1,6 +1,7 @@
 set imap_pass=`pass AppPassword/rollenseb@gmail.com`
 set smtp_pass=`pass AppPassword/rollenseb@gmail.com`
 set header_cache="~/.mutt/personal/cache/headers"
+set message_cachedir="~/.mutt/personal/cache/bodies"
 set from=rollenseb@gmail.com
 # Other email addresses that should be marked as "me"
 alternates -group me sebrollen@hotmail.com seb@rollen.io

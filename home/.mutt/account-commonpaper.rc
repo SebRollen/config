@@ -1,6 +1,7 @@
 set imap_pass=`pass AppPassword/sebastian@commonpaper.com`
 set smtp_pass=`pass AppPassword/sebastian@commonpaper.com`
 set header_cache="~/.mutt/commonpaper/cache/headers"
+set message_cachedir="~/.mutt/commonpaper/cache/bodies"
 set from=sebastian@commonpaper.com
 # Other email addresses that should be marked as "me"
 alternates -group me rollenseb@gmail.com
