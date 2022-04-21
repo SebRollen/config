@@ -8,7 +8,7 @@ folder-hook 'account-personal.rc' 'source ~/.mutt/account-personal.rc'
 folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc' 
 
 # Default account
-source ~/.mutt/account-personal.rc 
+source ~/.mutt/default_mailbox.sh
 
 # Macros for switching accounts
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>imaps://rollenseb@gmail.com@imap.gmail.com:993<enter>'
