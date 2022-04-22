@@ -57,7 +57,7 @@ set ssl_usesystemcerts = yes
 
 set mailcap_path = ~/.mutt/mailcap
 # html email
-auto_view text/enriched text/html  # view html automatically
+auto_view text/enriched text/html application/ics  # view automatically in body
 alternative_order text/plain text/enriched text/html # save html for last
 
 # -- bindings -- 
