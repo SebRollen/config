@@ -2,15 +2,15 @@
 status_path = "~/.vdirsyncer/status/"
 
 [pair contacts]
-a = "google_contacts"
+a = "fastmail_contacts"
 b = "local_contacts"
 collections = ["from a", "from b"]
 
-[pair calendar]
-a = "google_calendar"
-b = "local_calendar"
-collections = ["from a", "from b"]
-metadata = ["color"]
+# [pair calendar]
+# a = "google_calendar"
+# b = "local_calendar"
+# collections = ["from a", "from b"]
+# metadata = ["color"]
 
 [storage local_calendar]
 type = "filesystem"
@@ -31,8 +31,8 @@ type = "filesystem"
 path = "~/.contacts"
 fileext = ".vcf"
 
-[storage google_contacts]
-type = "google_contacts"
-token_file = "~/.vdirsyncer/google_contacts"
-client_id = "164574482528-7ndt6o3i98t4cbvrno4ceqfqm7k2svru.apps.googleusercontent.com"
-client_secret.fetch = ["command", "pass", "AppPassword/vdirsyncer"]
+[storage fastmail_contacts]
+type = "carddav"
+url = "https://carddav.fastmail.com/dav/addressbooks/user/seb@rollen.io/Default"
+username = "seb+Default@rollen.io"
+password.fetch = ["command", "pass", "AppPassword/vdirsyncer"]
