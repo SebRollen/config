@@ -19,3 +19,5 @@ source /Users/rollen/.config/broot/launcher/bash/br
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 source "/opt/homebrew/opt/homeshick/homeshick.sh"
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

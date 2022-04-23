@@ -1,7 +1,7 @@
 # Load configurations
 source ~/.mutt/gpg.rc
 
-source ~/.mutt/colors
+source ~/.mutt/base16
 
 # Folder hooks
 folder-hook 'account-personal.rc' 'source ~/.mutt/account-personal.rc' 
