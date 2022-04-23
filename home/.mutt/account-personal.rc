@@ -1,19 +1,17 @@
-set imap_pass=`pass AppPassword/rollenseb@gmail.com`
-set smtp_pass=`pass AppPassword/rollenseb@gmail.com`
+set imap_pass=`pass AppPassword/seb@rollen.io`
+set smtp_pass=`pass AppPassword/seb@rollen.io`
 set header_cache="~/.mutt/personal/cache/headers"
 set message_cachedir="~/.mutt/personal/cache/bodies"
-set from=rollenseb@gmail.com
+set from=seb@rollen.io
 # Other email addresses that should be marked as "me"
-alternates -group me sebrollen@hotmail.com seb@rollen.io
+alternates -group me rollenseb@gmail.com sebrollen@hotmail.com seb@rollen.io
 alternates -group me -group work sebastian.rollen@betterment.com seb@overmu.se sebastian.rollen@montroseconsultingllc.com
 
-set folder = "imaps://rollenseb@imap.gmail.com:993/"
-set smtp_url = "smtps://rollenseb@smtp.gmail.com:465/"
-set smtp_authenticators = 'gssapi:login'
+set folder = "imaps://seb@rollen.io@imap.fastmail.com:993/"
+set smtp_url = "smtps://seb@rollen.io@smtp.fastmail.com:465/"
 
-# Setup folders (specifically, use gmails format)
+# Setup folders
 set spoolfile = "+INBOX"
-set record = "+[Gmail]/Sent%20Mail"
-set trash = "+[Gmail]/Trash"
-set postponed = "+[Gmail]/Drafts"
-
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
