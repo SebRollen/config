@@ -13,6 +13,7 @@ eval "$(starship init zsh)"
 eval "$(mcfly init zsh)"
 
 alias ls=exa
+alias veracrypt="/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text"
 
 source /Users/rollen/.config/broot/launcher/bash/br
 
