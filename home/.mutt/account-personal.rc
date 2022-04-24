@@ -1,4 +1,4 @@
-set smtp_pass=`pass AppPassword/seb@rollen.io`
+set smtp_pass=`pass AppPassword/fastmail/mutt`
 set header_cache="~/.mutt/personal/cache/headers"
 set message_cachedir="~/.mutt/personal/cache/bodies/"
 set from=seb@rollen.io
