@@ -64,7 +64,10 @@ Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'strboul/urlview.vim'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
+
+colorscheme nord
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"

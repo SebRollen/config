@@ -11,7 +11,7 @@ folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc'
 source ~/.mutt/account-personal.rc 
 
 # Macros for switching accounts
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>imaps://rollenseb@gmail.com@imap.gmail.com:993<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>~/Mail/INBOX<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>imaps://sebastian@commonpaper.com@imap.gmail.com:993<enter>'
 
 # Display the fields in this order
@@ -25,7 +25,6 @@ set mail_check=60 # If we are actively using mutt, only search for mail every mi
 set timeout=5 # Update folder status often (every 5 seconds) when inactive
 set nobeep
 set beep_new
-set copy=no # No need to save to `record` as gmail does that already
 set realname="Sebastian Rollén"
 set charset = "utf-8"
 set tilde
@@ -34,6 +33,7 @@ set text_flowed
 set query_command = "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
+set new_mail_command="terminal-notifier -title '%v' -subtitle 'New Mail' -message '%n new messages, %u unread.'"
 
 # Sorting and threading
 set sort = "threads"
@@ -71,3 +71,11 @@ macro compose a "<pgp-menu>s<attach-file>"
 
 bind pager j next-line
 bind pager k previous-line
+
+### BEGIN NOTMUCH-MUTT SETTINGS
+    macro index  \
+          "unset wait_key~/.mutt/mutt-notmuch.pl --prompt search~/.cache/mutt_results" \
+          "search mail (using notmuch)"
+    macro index  \
+          "unset wait_key~/.mutt/mutt-notmuch.pl thread~/.cache/mutt_resultsset wait_key" \
+          "search and reconstruct owning thread (using notmuch)"

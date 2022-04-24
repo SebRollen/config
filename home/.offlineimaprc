@@ -1,9 +1,11 @@
 [general]
 accounts = Personal
+pythonfile = ~/.offlineimap.py
 
 [Account Personal]
 localrepository = Local
 remoterepository = Remote
+autorefresh = 1
 
 [Repository Local]
 type = Maildir
@@ -17,3 +19,4 @@ ssl = yes
 cert_fingerprint = ebeb9b128ef5245bbb2e8140cfc54e450cf557d9
 holdconnectionopen = yes
 remoteuser = seb@rollen.io
+remotepasseval = get_pass()
