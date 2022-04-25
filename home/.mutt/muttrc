@@ -11,7 +11,7 @@ folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc'
 source ~/.mutt/account-personal.rc 
 
 # Macros for switching accounts
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>~/Mail/INBOX<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>~/Mail/Personal/INBOX<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>imaps://sebastian@commonpaper.com@imap.gmail.com:993<enter>'
 
 # Display the fields in this order
@@ -33,7 +33,6 @@ set text_flowed
 set query_command = "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
-set new_mail_command="terminal-notifier -title '%v' -subtitle 'New Mail' -message '%n new messages, %u unread.'"
 
 # Sorting and threading
 set sort = "threads"

@@ -9,7 +9,7 @@ autorefresh = 1
 
 [Repository Local]
 type = Maildir
-localfolders = ~/Mail
+localfolders = ~/Mail/Personal
 
 [Repository Remote]
 type = IMAP

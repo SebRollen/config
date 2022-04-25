@@ -10,7 +10,7 @@ set folder = "imaps://seb@rollen.io@imap.fastmail.com:993/"
 set smtp_url = "smtps://seb@rollen.io@smtp.fastmail.com:465/"
 
 # Setup folders
-set folder = "~/Mail"
+set folder = "~/Mail/Personal"
 set mbox_type = Maildir
 set spoolfile = "+INBOX"
 set record = "+Sent"
