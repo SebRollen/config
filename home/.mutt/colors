@@ -18,16 +18,14 @@
 # nord15: color5
 #
 ## Colours for items in the index
-# First, distinguish mailing list/cc from to=me
-color index yellow default "!~p"
-color index white default "~p!~P"
-color index brightyellow default "(~N|~O|~U)!~p"
-color index brightwhite default "(~N|~O|~U)~p"
+color index color8 default "!(~N|~O|~U)"
+# Make new messages brighter
+color index color7 default "(~N|~O|~U)"
 # Next, mark other messages
-color index magenta default ~Q # replied
-color index brightgreen default ~F # flagged
-color index brightblue default ~T # tagged
-color index red default ~D # deleted
+color index color12 default ~Q # replied
+color index color6 default ~F # flagged
+color index color14 default ~T # tagged
+color index color1 default ~D # deleted
 mono index bold ~N
 mono index bold ~O
 mono index bold ~F
@@ -35,10 +33,10 @@ mono index bold ~T
 mono index bold ~D
 
 # Header colors:
-color header blue default ".*"
-color header brightmagenta default "^(From)"
-color header brightcyan default "^(Subject)"
-color header brightwhite default "^(CC|BCC)"
+color header color8 default ".*"
+#color header color7 default "^(From)"
+#color header color7 default "^(Subject)"
+#color header color7 default "^(CC|BCC)"
 
 mono bold bold
 mono underline underline
@@ -46,41 +44,37 @@ mono indicator reverse
 mono error bold
 color normal default default
 color indicator color7 color0
-color normal brightyellow default
-color error red default
-color tilde blue default
-color message cyan default
-color markers red white
-color attachment white default
-color search brightmagenta default
+color error color1 default
+color tree color8 default
+color tilde color0 default
+color message color6 default
+color markers color8 default
+color attachment color14 default
+color search color6 default
 color status color7 color0
-color hdrdefault brightgreen default
-color quoted green default
-color quoted1 blue default
-color quoted2 cyan default
-color quoted3 yellow default
-color quoted4 red default
-color quoted5 brightred default
-color signature brightgreen default
-color bold black default
-color underline black default
+color quoted color4 default
+color quoted1 color12 default
+color quoted2 color12 default
+color quoted3 color12 default
+color quoted4 color12 default
+color quoted5 color12 default
+color signature color12 default
 color normal default default
+color compose security_encrypt color2 default
+color compose security_sign color2 default
+color compose security_both color2 default
+color compose security_none color11 default
 
-color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
-color body brightred default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
-color body green default "\`[^\`]*\`" # Green text between ` and `
-color body brightblue default "^# \.*" # Headings as bold blue
-color body brightcyan default "^## \.*" # Subheadings as bold cyan
-color body brightgreen default "^### \.*" # Subsubheadings as bold green
-color body yellow default "^(\t| )*(-|\\*) \.*" # List items as yellow
-color body brightcyan default "[;:][-o][)/(|]" # emoticons
-color body brightcyan default "[;:][)(|]" # emoticons
-color body brightcyan default "[ ][*][^*]*[*][ ]?" # more emoticon?
-color body brightcyan default "[ ]?[*][^*]*[*][ ]" # more emoticon?
-color body red default "(BAD signature)"
-color body cyan default "(Good signature)"
-color body brightblack default "^gpg: Good signature .*"
-color body brightyellow default "^gpg: "
-color body brightyellow red "^gpg: BAD signature from.*"
+color body color4 default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
+color body color4 default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
+color body color12 default "\`[^\`]*\`" # Green text between ` and `
+color body color12 default "^# \.*" # Headings
+color body color12 default "^## \.*" # Subheadings
+color body color12 default "^### \.*" # Subsubheadings
+color body color1 default "(BAD signature)"
+color body color2 default "(Good signature)"
+color body color2 default "^gpg: Good signature .*"
+color body color3 default "^gpg: "
+color body color1 default "^gpg: BAD signature from.*"
 mono body bold "^gpg: Good signature"
 mono body bold "^gpg: BAD signature from.*"
