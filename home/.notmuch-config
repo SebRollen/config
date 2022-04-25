@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/Users/rollen/Mail
+path=/Users/rollen/Mail/Personal
 
 # User configuration
 #
