@@ -4,7 +4,7 @@ autoload -Uz compinit && compinit -u
 gpgconf --launch gpg-agent
 # Prompt for pin to make sure yubikey is working correctly
 local serialno=$(gpg-connect-agent 'scd serialno' /bye | awk '{print $3}')
-gpg-connect-agent "scd checkpin $serialno" /bye
+gpg-connect-agent "scd checkpin $serialno" /bye > /dev/null
 
 homeshick --quiet refresh # Check if homeshick castles have been refreshed recently
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
