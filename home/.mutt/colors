@@ -1,4 +1,22 @@
 # vim: filetype=neomuttrc
+#
+# nord0: 
+# nord1: color0
+# nord2: 
+# nord3: color8
+# nord4: 
+# nord5: color7
+# nord6: color15
+# nord7: color14
+# nord8: color6
+# nord9: color4
+# nord10: color12
+# nord11: color1
+# nord12: color11
+# nord13: color3
+# nord14: color2
+# nord15: color5
+#
 ## Colours for items in the index
 # First, distinguish mailing list/cc from to=me
 color index yellow default "!~p"
@@ -27,11 +45,7 @@ mono underline underline
 mono indicator reverse
 mono error bold
 color normal default default
-color indicator brightblack white
-color sidebar_highlight red default
-color sidebar_divider brightblack black
-color sidebar_flagged red black
-color sidebar_new green black
+color indicator color7 color0
 color normal brightyellow default
 color error red default
 color tilde blue default
@@ -39,7 +53,7 @@ color message cyan default
 color markers red white
 color attachment white default
 color search brightmagenta default
-color status brightyellow default
+color status color7 color0
 color hdrdefault brightgreen default
 color quoted green default
 color quoted1 blue default

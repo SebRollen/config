@@ -78,6 +78,9 @@ let g:nnn#set_default_mappings=0
 let g:nnn#layout={'window': {'width': 0.9, 'height': 0.6, 'highlight': 'Debug'}}
 nnoremap <leader>n :NnnPicker %:p:h<CR>
 
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 let g:rustfmt_autosave=1
 
 let g:ale_linters = {'rust': ['analyzer'], 'zig': ['zls'], 'ruby': ['rubocop']}
