@@ -31,6 +31,7 @@ set tilde
 # http://nullprogram.com/blog/2017/06/15/
 set text_flowed
 set query_command = "khard email --parsable %s"
+set confirmappend = no
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
