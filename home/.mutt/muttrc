@@ -32,6 +32,9 @@ set tilde
 set text_flowed
 set query_command = "khard email --parsable %s"
 set confirmappend = no
+set fast_reply=yes        # when replying, don't prompt for address
+set include=yes           # include original text on reply?
+set forward_quote=yes     # include original text on forward?
 bind editor <Tab> complete-query
 bind editor ^T    complete
 

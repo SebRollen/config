@@ -6,3 +6,5 @@ def get_pass(account):
         return check_output("pass AppPassword/fastmail/offlineimap", shell=True).splitlines()[0]
     elif account == 'CommonPaper':
         return check_output("pass AppPassword/sebastian@commonpaper.com", shell=True).splitlines()[0]
+    else:
+        raise
