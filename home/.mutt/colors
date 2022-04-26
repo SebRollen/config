@@ -34,9 +34,8 @@ mono index bold ~D
 
 # Header colors:
 color header color8 default ".*"
-#color header color7 default "^(From)"
-#color header color7 default "^(Subject)"
-#color header color7 default "^(CC|BCC)"
+## Quoted headers in forwarded messages, etc
+color body color8 default "^(From|Date|Subject|To|CC|BCC): .*" 
 
 mono bold bold
 mono underline underline

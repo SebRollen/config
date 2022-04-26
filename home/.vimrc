@@ -20,6 +20,8 @@ set ignorecase
 set incsearch
 set smartcase
 
+set formatoptions+=w
+
 nnoremap j gj
 nnoremap k gk
 
