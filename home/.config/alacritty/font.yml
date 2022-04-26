@@ -1,0 +1,11 @@
+font:
+  normal:
+    family: Iosevka Term
+    style: Extralight
+  bold:
+    style: Semibold
+  italic:
+    style: Extralight Italic
+  bold_italic:
+    style: Semibold Italic
+  size: 18
