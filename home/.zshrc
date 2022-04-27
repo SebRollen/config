@@ -20,3 +20,4 @@ source /Users/rollen/.config/broot/launcher/bash/br
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 source "/opt/homebrew/opt/homeshick/homeshick.sh"
+alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'

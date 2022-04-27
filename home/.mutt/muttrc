@@ -14,36 +14,32 @@ source ~/.mutt/account-personal.rc
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>~/Mail/Personal/INBOX<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>imaps://sebastian@commonpaper.com@imap.gmail.com:993<enter>'
 
-# Display the fields in this order
-hdr_order date subject from to cc
-my_hdr X-PGP-Key: https://rollen.io/sebrollen.pgp.asc
-# Allow sending emails with no subject
-set abort_nosubject=no
-set editor=vim
-set date_format="!%b %d, %Y at %I:%M%p %Z"
-set mail_check=60 # If we are actively using mutt, only search for mail every minute
-set timeout=5 # Update folder status often (every 5 seconds) when inactive
-set nobeep
-set beep_new
-set realname="Sebastian Rollén"
-set charset = "utf-8"
-set tilde
-# http://nullprogram.com/blog/2017/06/15/
-set text_flowed
-set query_command = "khard email --parsable %s"
-set confirmappend = no
-set fast_reply=yes        # when replying, don't prompt for address
-set include=yes           # include original text on reply?
-set forward_quote=yes     # include original text on forward?
-bind editor <Tab> complete-query
-bind editor ^T    complete
 
-# Sorting and threading
-set sort = "threads"
-set strict_threads="yes" # Don't automatically group messages with the same subject
-set collapse_unread="no" # Don't collapse a thread if there's an unread message in it
+hdr_order date subject from to cc                     # Display the fields in this order
+my_hdr X-PGP-Key: https://rollen.io/sebrollen.pgp.asc # Add a custom header with my PGP key to emails
+set abort_nosubject=no                                # Allow sending emails with no subject
+set editor=vim                                        # Use vim as the editor for message composition
+set date_format="!%b %d, %Y at %I:%M%p %Z"            # Format dates as MMM DD, YYYY at HH:MM:SS TZ
+set mail_check=60                                     # If we are actively using mutt, only search for mail every minute
+set timeout=5                                         # Update folder status often (every 5 seconds) when inactive
+set nobeep                                            # Don't beep by default
+set beep_new                                          # DO beep on new emails
+set confirmappend = no                                # Don't ask for confirmation when saving a message
+set realname="Sebastian Rollén"                       # Display name
+set charset = "utf-8"                                 # Use utf-8 as the default charset
+set tilde                                             # Display tildes after the end of the mail in the pager
+set text_flowed                                       # Reflow text: http://nullprogram.com/blog/2017/06/15/
+set fast_reply=yes                                    # when replying, don't prompt for address
+set include=yes                                       # include original text on reply
+set forward_quote=yes                                 # include original text on forward
+set query_command = "khard email --parsable %s"       # Use khard as the address book
+bind editor <Tab> complete-query                      # Use tab to query address book
+bind editor ^T    complete                            
+set sort = "threads"                                  # Group messages by thread
+set strict_threads="yes"                              # Don't automatically group messages with the same subject
+set collapse_unread="no"                              # Don't collapse a thread if there's an unread message in it
 set sort_browser="reverse-date"
-set sort_aux="reverse-last-date-received" # Bring threads with recent messages to top
+set sort_aux="reverse-last-date-received"             # Bring threads with recent messages to top
 
 # SSL hardening
 set ssl_force_tls = yes
