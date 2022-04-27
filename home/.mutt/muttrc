@@ -35,11 +35,10 @@ set forward_quote=yes                                 # include original text on
 set query_command = "khard email --parsable %s"       # Use khard as the address book
 bind editor <Tab> complete-query                      # Use tab to query address book
 bind editor ^T    complete                            
-set sort = "threads"                                  # Group messages by thread
+set sort = "reverse-threads"                          # Group messages by thread
 set strict_threads="yes"                              # Don't automatically group messages with the same subject
 set collapse_unread="no"                              # Don't collapse a thread if there's an unread message in it
-set sort_browser="reverse-date"
-set sort_aux="reverse-last-date-received"             # Bring threads with recent messages to top
+set sort_aux="last-date-received"
 
 # SSL hardening
 set ssl_force_tls = yes

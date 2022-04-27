@@ -1,14 +1,19 @@
 [calendars]
 
 [[personal]]
-path = /Users/rollen/.calendars/rollenseb@gmail.com
+path = /Users/rollen/.calendars/F40450C8-C314-11EC-9578-970C8816283D
 type = calendar
-color = brown
+color = yellow
 
 [[family]]
-path = /Users/rollen/.calendars/family02719955292050831019@group.calendar.google.com
+path = /Users/rollen/.calendars/EB52C270-C314-11EC-9578-970C8816283D
 type = calendar
 color = light blue
+
+[[deadlines]]
+path = /Users/rollen/.calendars/F32400CC-C314-11EC-9578-970C8816283D
+type = calendar
+color = light red
 
 [locale]
 timeformat = %H:%M
