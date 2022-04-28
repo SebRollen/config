@@ -7,12 +7,13 @@ ui = quiet
 localrepository = Local
 remoterepository = Remote
 autorefresh = 5
-quick = 24
+quick = 20
 
 [Account CommonPaper]
 localrepository = LocalCommonPaper
 remoterepository = RemoteCommonPaper
-autorefresh = 1
+autorefresh = 5
+quick = 20
 
 [Repository Local]
 type = Maildir
