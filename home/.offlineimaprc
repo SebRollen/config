@@ -1,12 +1,13 @@
 [general]
-accounts = Personal
+accounts = Personal, CommonPaper
 pythonfile = ~/.offlineimap.py
 ui = quiet
 
 [Account Personal]
 localrepository = Local
 remoterepository = Remote
-autorefresh = 1
+autorefresh = 5
+quick = 24
 
 [Account CommonPaper]
 localrepository = LocalCommonPaper
@@ -16,9 +17,10 @@ autorefresh = 1
 [Repository Local]
 type = Maildir
 localfolders = ~/Mail/Personal
+sep = /
 
 [Repository LocalCommonPaper]
-type = Maildir
+type = GmailMaildir
 localfolders = ~/Mail/CommonPaper
 
 [Repository Remote]
@@ -32,10 +34,7 @@ remoteuser = seb@rollen.io
 remotepasseval = get_pass('Personal')
 
 [Repository RemoteCommonPaper]
-type = IMAP
-remotehost = imap.gmail.com
-remoteport = 993
+type = Gmail
 remoteuser = sebastian@commonpaper.com
-remotepass = get_pass('CommonPaper')
-ssl = yes
-sslcacertfile = /etc/ssl/cert.pem
+remotepasseval = get_pass('CommonPaper')
+cert_fingerprint = f450c5d0242b1bd211079c4f4c9d5087d018510f

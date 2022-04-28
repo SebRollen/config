@@ -12,7 +12,7 @@ source ~/.mutt/account-personal.rc
 
 # Macros for switching accounts
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>~/Mail/Personal/INBOX<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>imaps://sebastian@commonpaper.com@imap.gmail.com:993<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>~/Mail/CommonPaper/INBOX<enter>'
 
 
 hdr_order date subject from to cc                     # Display the fields in this order
