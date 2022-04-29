@@ -23,7 +23,7 @@ color index color8 default "!(~N|~O|~U)"
 color index color7 default "(~N|~O|~U)"
 # Next, mark other messages
 color index color12 default ~Q # replied
-color index color6 default ~F # flagged
+color index color5 default ~F # flagged
 color index color14 default ~T # tagged
 color index color1 default ~D # deleted
 mono index bold ~N

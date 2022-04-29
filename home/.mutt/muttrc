@@ -11,14 +11,14 @@ folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc'
 source ~/.mutt/account-personal.rc 
 
 # Macros for switching accounts
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>~/Mail/Personal/INBOX<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>~/Mail/CommonPaper/INBOX<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>!<enter>'
 
 
 hdr_order date subject from to cc                     # Display the fields in this order
 my_hdr X-PGP-Key: https://rollen.io/sebrollen.pgp.asc # Add a custom header with my PGP key to emails
 set abort_nosubject=no                                # Allow sending emails with no subject
-set editor=vim                                        # Use vim as the editor for message composition
+set editor="vim -c 'set spell spelllang=en_us,sv'"    # Use vim as the editor for message composition, and spellcheck
 set date_format="!%b %d, %Y at %I:%M%p %Z"            # Format dates as MMM DD, YYYY at HH:MM:SS TZ
 set mail_check=60                                     # If we are actively using mutt, only search for mail every minute
 set timeout=5                                         # Update folder status often (every 5 seconds) when inactive

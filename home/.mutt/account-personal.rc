@@ -5,6 +5,8 @@ set from=seb@rollen.io
 # Other email addresses that should be marked as "me"
 alternates -group me rollenseb@gmail.com sebrollen@hotmail.com seb@rollen.io
 alternates -group me -group work sebastian.rollen@betterment.com seb@overmu.se sebastian.rollen@montroseconsultingllc.com
+lists dsp-alumni@wharton.upenn.edu betanu@upenndsp.com
+subscribe dsp-alumni@wharton.upenn.edu betanu@upenndsp.com
 
 set folder = "imaps://seb@rollen.io@imap.fastmail.com:993/"
 set smtp_url = "smtps://seb@rollen.io@smtp.fastmail.com:465/"
