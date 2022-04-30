@@ -1,7 +1,5 @@
-# Requires lynx (brew install lynx)
 text/html; w3m -I %{charset} -T text/html; needsterminal;
 text/html; lynx -dump -force_html %s; copiousoutput;
-
 image/jpg; ~/.mutt/view_attachment.sh %s jpg
 image/jpeg; ~/.mutt/view_attachment.sh %s jpg
 image/pjpeg; ~/.mutt/view_attachment.sh %s jpg

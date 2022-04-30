@@ -8,7 +8,6 @@ alternates -group me -group work sebastian.rollen@betterment.com seb@overmu.se s
 lists dsp-alumni@wharton.upenn.edu betanu@upenndsp.com
 subscribe dsp-alumni@wharton.upenn.edu betanu@upenndsp.com
 
-set folder = "imaps://seb@rollen.io@imap.fastmail.com:993/"
 set smtp_url = "smtps://seb@rollen.io@smtp.fastmail.com:465/"
 set copy=yes
 

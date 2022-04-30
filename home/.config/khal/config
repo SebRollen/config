@@ -1,17 +1,17 @@
 [calendars]
 
 [[personal]]
-path = /Users/rollen/.calendars/F40450C8-C314-11EC-9578-970C8816283D
+path = /Users/rollen/.calendars/8cbcd7d4-5614-4164-992e-07a2bd193543
 type = calendar
 color = yellow
 
 [[family]]
-path = /Users/rollen/.calendars/EB52C270-C314-11EC-9578-970C8816283D
+path = /Users/rollen/.calendars/d9e516c2-2c87-409e-b655-397864e02c1a
 type = calendar
 color = light blue
 
 [[deadlines]]
-path = /Users/rollen/.calendars/F32400CC-C314-11EC-9578-970C8816283D
+path = /Users/rollen/.calendars/11f7dcdf-5e3b-4098-a7b2-e0d71f5121c4
 type = calendar
 color = light red
 

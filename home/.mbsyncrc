@@ -1,0 +1,92 @@
+# -----------------------------------------------------------------------
+# -                              Personal                               -
+# -----------------------------------------------------------------------
+
+IMAPAccount personal
+Host imap.fastmail.com
+Port 993
+User seb@rollen.io
+PassCmd "pass AppPassword/fastmail/offlineimap"
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Path ~/Mail/Personal/
+Inbox ~/Mail/Personal/INBOX
+SubFolders Verbatim
+
+Channel personal
+Far :personal-remote:
+Near :personal-local:
+Patterns * !Snoozed !Spam
+Expunge Both
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
+
+# -----------------------------------------------------------------------
+# -                            Common Paper                             -
+# -----------------------------------------------------------------------
+
+IMAPAccount commonpaper
+Host imap.gmail.com
+SSLType IMAPS
+AuthMechs LOGIN
+SSLType IMAPS
+User sebastian@commonpaper.com
+PassCmd "pass AppPassword/sebastian@commonpaper.com"
+
+IMAPStore commonpaper-remote
+Account commonpaper
+
+MaildirStore commonpaper-local
+Path ~/Mail/CommonPaper/
+Inbox ~/Mail/CommonPaper/INBOX
+SubFolders Verbatim
+
+Channel commonpaper-archive
+Far :commonpaper-remote:"[Gmail]/All Mail"
+Near :commonpaper-local:Archive
+Create Near
+SyncState *
+Sync All
+
+Channel commonpaper-default
+Far :commonpaper-remote:
+Near :commonpaper-local:
+Patterns INBOX Github
+Expunge Both
+Create Both
+SyncState *
+Sync All
+
+Channel commonpaper-sent
+Far :commonpaper-remote:"[Gmail]/Sent Mail"
+Near :commonpaper-local:Sent
+Create Near
+Sync All
+Expunge Both
+
+Channel commonpaper-trash
+Far :commonpaper-remote:"[Gmail]/Trash"
+Near :commonpaper-local:Trash
+Create Near
+Sync All
+
+Channel commonpaper-drafts
+Far :commonpaper-remote:"[Gmail]/Drafts"
+Near :commonpaper-local:Drafts
+Create Near
+Expunge Both
+Sync All
+
+Group commonpaper
+Channel commonpaper-archive
+Channel commonpaper-default
+Channel commonpaper-drafts
+Channel commonpaper-sent
+Channel commonpaper-trash

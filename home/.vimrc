@@ -122,6 +122,10 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+nnoremap gd :ALEGoToDefinition<CR>
+nnoremap gr :ALEFindReferences<CR>
+nnoremap K :ALEHover<CR>
+
 " Disable arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -133,7 +137,6 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 " TODO: Fix the language client below
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 function! RipgrepFzf(query, fullscreen)

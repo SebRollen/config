@@ -1,23 +1,21 @@
-# Load configurations
-source ~/.mutt/gpg.rc
-
-source ~/.mutt/colors
-
-# Folder hooks
+# Re-source config files when switching folders
 folder-hook 'account-personal.rc' 'source ~/.mutt/account-personal.rc' 
 folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc' 
-
-# Default account
-source ~/.mutt/account-personal.rc 
-
+#
 # Macros for switching accounts
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account-commonpaper.rc<enter><change-folder>!<enter>'
 
+source ~/.mutt/gpg.rc              # GPG settings
+source ~/.mutt/colors              # Color-scheme
+source ~/.mutt/account-personal.rc # Load default account
+
+set mailcap_path = ~/.mutt/mailcap                   # Load configureation for dealing with attachment file types
+auto_view text/enriched text/html application/ics    # View automatically in body
+alternative_order text/plain text/enriched text/html # Save html for last
 
 hdr_order date subject from to cc                     # Display the fields in this order
 my_hdr X-PGP-Key: https://rollen.io/sebrollen.pgp.asc # Add a custom header with my PGP key to emails
-set abort_nosubject=no                                # Allow sending emails with no subject
 set editor="vim -c 'set spell spelllang=en_us,sv'"    # Use vim as the editor for message composition, and spellcheck
 set date_format="!%b %d, %Y at %I:%M%p %Z"            # Format dates as MMM DD, YYYY at HH:MM:SS TZ
 set mail_check=60                                     # If we are actively using mutt, only search for mail every minute
@@ -29,66 +27,35 @@ set realname="Sebastian Rollén"                       # Display name
 set charset = "utf-8"                                 # Use utf-8 as the default charset
 set tilde                                             # Display tildes after the end of the mail in the pager
 set text_flowed                                       # Reflow text: http://nullprogram.com/blog/2017/06/15/
+set abort_nosubject=no                                # Allow sending emails with no subject
 set fast_reply=yes                                    # when replying, don't prompt for address
 set include=yes                                       # include original text on reply
 set forward_quote=yes                                 # include original text on forward
-set query_command = "khard email --parsable %s"       # Use khard as the address book
-bind editor <Tab> complete-query                      # Use tab to query address book
-bind editor ^T    complete                            
-set sort = "reverse-threads"                          # Group messages by thread
 set strict_threads="yes"                              # Don't automatically group messages with the same subject
 set collapse_unread="no"                              # Don't collapse a thread if there's an unread message in it
-set sort_aux="last-date-received"
+set sort = "reverse-threads"                          # Group messages by thread
+set sort_aux="last-date-received"                     # Set newest messages in threads first
+set query_command = "khard email --parsable %s"       # Use khard as the address book
+bind editor <Tab> complete-query                      # Use tab to query address book
+#bind editor ^T    complete                             Not sure what this is for
+set ssl_force_tls = yes                               # Always use TLS
+set ssl_starttls = yes                                # Negotiate TLS after initial unencrypted connection
+set ssl_verify_dates = yes                            # Don't accept expired or early certificates
+set ssl_verify_host = yes                             # Enforce validity of host name
+set ssl_usesystemcerts = yes                          # Use system-wide certs
 
-# SSL hardening
-set ssl_force_tls = yes
-set ssl_starttls = yes
-set ssl_verify_dates = yes
-set ssl_verify_host = yes
-set ssl_usesystemcerts = yes
+# Send a notification through terminal-notifier when a new mail arrives
+set new_mail_command="terminal-notifier -title '%v' -subtitle 'New Mail' \
+-message '%n new messages, %u unread.' -activate 'com.apple.Terminal'"
 
-set mailcap_path = ~/.mutt/mailcap
-# html email
-auto_view text/enriched text/html application/ics  # view automatically in body
-alternative_order text/plain text/enriched text/html # save html for last
-
-# -- bindings -- 
-# G to get mail
-bind index G imap-fetch-mail
+macro index G "!mbsync -a^M" "Update through mbsync"
 macro index gd "<change-folder>$postponed<enter>" "go to drafts"
 macro index gs "<change-folder>$record<enter>" "go to sent"
 macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
-macro index gt "<change-folder>$trash<enter>" "go to trash""
-macro index,pager A \
-  "<pipe-message>khard add-email<return>" \
-  "add the sender email address to khard"
-
-# Automatically sign emails with attachments
-# https://m7i.org/tips/mutt-pgp-sign-attachment/
-macro compose a "<pgp-menu>s<attach-file>"
-
-bind pager j next-line
-bind pager k previous-line
-
-macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
-
-### BEGIN NOTMUCH-MUTT SETTINGS
-macro index <F8> \
-"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-<shell-escape>notmuch-mutt -r --prompt search<enter>\
-<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
-<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-"notmuch: search mail"
-
-macro index <F9> \
-"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-<pipe-message>notmuch-mutt -r thread<enter>\
-<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
-<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-"notmuch: reconstruct thread"
-
-macro index <F6> \
-"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-<pipe-message>notmuch-mutt tag -- -inbox<enter>\
-<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-"notmuch: remove message from inbox"
+macro index gt "<change-folder>$trash<enter>" "go to trash"
+macro index ga "<change-folder>=Archive<enter>" "go to archive"
+macro index,pager A "<pipe-message>khard add-email<return>" "add the sender email address to khard"
+macro attach I "<pipe-message>khal import<return>" "import .ics file to khal"
+macro compose a "<pgp-menu>s<attach-file>" "sign email and add attachment"
+bind pager j next-line     # Use vim bindings for navigating in mail
+bind pager k previous-line # Use vim bindings for navigating in mail
