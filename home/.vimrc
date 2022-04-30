@@ -57,7 +57,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'ziglang/zig.vim'
-Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
@@ -77,7 +76,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:snips_author="Sebastian Rollen"
 
 let g:nnn#set_default_mappings=0
-let g:nnn#layout={'window': {'width': 0.9, 'height': 0.6, 'highlight': 'Debug'}}
+let g:nnn#layout={'window': {'width': 0.9, 'height': 0.6}}
 nnoremap <leader>n :NnnPicker %:p:h<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -100,14 +99,7 @@ highlight ALEErrorSign ctermfg=red
 highlight ALEWarningSign ctermfg=yellow
 highlight clear SignColumn
 
-let g:vimwiki_global_ext = 0
-
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
-
-" Put diary files in same folder as rest of wiki for easier linking
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimwiki_html/', 'diary_rel_path' : '', 'ext': '.md', 'syntax': 'markdown','auto_tags':1}]
-" Disable <tab> in insert mode for vimwiki to allow for snip expansion
-let g:vimwiki_key_mappings = { 'table_mappings': 0, }
 
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>p :set paste!<CR>
@@ -135,9 +127,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-" TODO: Fix the language client below
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 function! RipgrepFzf(query, fullscreen)
     let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'

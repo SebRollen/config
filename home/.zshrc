@@ -7,8 +7,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval "$(starship init zsh)"
 eval "$(mcfly init zsh)"
 
-source /Users/rollen/.config/broot/launcher/bash/br
-
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source "/opt/homebrew/opt/homeshick/homeshick.sh"
 
