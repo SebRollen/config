@@ -32,6 +32,8 @@ set tilde                                             # Display tildes after the
 set text_flowed                                       # Reflow text: http://nullprogram.com/blog/2017/06/15/
 set abort_nosubject=no                                # Allow sending emails with no subject
 set fast_reply=yes                                    # when replying, don't prompt for address
+set autoedit=yes
+set edit_headers=yes
 set include=yes                                       # include original text on reply
 set forward_quote=yes                                 # include original text on forward
 set strict_threads="yes"                              # Don't automatically group messages with the same subject
