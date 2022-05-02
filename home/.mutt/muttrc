@@ -24,6 +24,9 @@ set nobeep                                            # Don't beep by default
 set beep_new                                          # DO beep on new emails
 set confirmappend = no                                # Don't ask for confirmation when saving a message
 set realname="Sebastian Rollén"                       # Display name
+set use_from=yes                                      # Automatically generate From header (used by msmtp)
+set envelope_from=yes                                 # Set envelope sender on message (used by msmtp)
+set sendmail_wait = -1                                # Don't wait for send mail delivery, as that is handled by msmtp
 set charset = "utf-8"                                 # Use utf-8 as the default charset
 set tilde                                             # Display tildes after the end of the mail in the pager
 set text_flowed                                       # Reflow text: http://nullprogram.com/blog/2017/06/15/
@@ -37,7 +40,6 @@ set sort = "reverse-threads"                          # Group messages by thread
 set sort_aux="last-date-received"                     # Set newest messages in threads first
 set query_command = "khard email --parsable %s"       # Use khard as the address book
 bind editor <Tab> complete-query                      # Use tab to query address book
-#bind editor ^T    complete                             Not sure what this is for
 set ssl_force_tls = yes                               # Always use TLS
 set ssl_starttls = yes                                # Negotiate TLS after initial unencrypted connection
 set ssl_verify_dates = yes                            # Don't accept expired or early certificates

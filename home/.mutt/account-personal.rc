@@ -1,15 +1,21 @@
-set smtp_pass=`pass AppPassword/fastmail/mutt`
+unset smtp_pass
+unset header_cache
+unset message_cachedir
+unset from
+unset copy
+unset sendmail
+
 set header_cache="~/.mutt/personal/cache/headers"
 set message_cachedir="~/.mutt/personal/cache/bodies/"
-set from=seb@rollen.io
 # Other email addresses that should be marked as "me"
 alternates -group me rollenseb@gmail.com sebrollen@hotmail.com seb@rollen.io
 alternates -group me -group work sebastian.rollen@betterment.com seb@overmu.se sebastian.rollen@montroseconsultingllc.com
 lists dsp-alumni@wharton.upenn.edu betanu@upenndsp.com
 subscribe dsp-alumni@wharton.upenn.edu betanu@upenndsp.com
 
-set smtp_url = "smtps://seb@rollen.io@smtp.fastmail.com:465/"
+set from=seb@rollen.io
 set copy=yes
+set sendmail="/opt/homebrew/bin/msmtpq --account personal"
 
 # Setup folders
 set folder = "~/Mail/Personal"

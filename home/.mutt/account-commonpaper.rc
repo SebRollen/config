@@ -1,13 +1,19 @@
-set smtp_pass=`pass AppPassword/sebastian@commonpaper.com`
+unset smtp_pass
+unset header_cache
+unset message_cachedir
+unset from
+unset copy
+unset sendmail
+
 set header_cache="~/.mutt/commonpaper/cache/headers"
 set message_cachedir="~/.mutt/commonpaper/cache/bodies/"
 set from=sebastian@commonpaper.com
 # Other email addresses that should be marked as "me"
 alternates -group me rollenseb@gmail.com seb@rollen.io
 
-set smtp_url = "smtps://sebastian@commonpaper.com@smtp.gmail.com:465/"
-set smtp_authenticators = 'gssapi:login'
+set from=sebastian@commonpaper.com
 set copy=no # No need to save to `record` as gmail does that already
+set sendmail="/opt/homebrew/bin/msmtpq --account commonpaper"
 
 # Setup folders
 set folder = "~/Mail/CommonPaper"
