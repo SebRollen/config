@@ -17,13 +17,15 @@ alternative_order text/plain text/enriched text/html # Save html for last
 hdr_order date subject from to cc                     # Display the fields in this order
 my_hdr X-PGP-Key: https://rollen.io/sebrollen.pgp.asc # Add a custom header with my PGP key to emails
 set editor="vim -c 'set spell spelllang=en_us,sv'"    # Use vim as the editor for message composition, and spellcheck
-set date_format="!%b %d, %Y at %I:%M%p %Z"            # Format dates as MMM DD, YYYY at HH:MM:SS TZ
+set date_format="!%Y-%m-%d %H:%M %Z"                  # Format dates
+set index_format="%5C %Z %D %-20.20n %s"
 set mail_check=60                                     # If we are actively using mutt, only search for mail every minute
 set timeout=5                                         # Update folder status often (every 5 seconds) when inactive
 set nobeep                                            # Don't beep by default
 set beep_new                                          # DO beep on new emails
 set confirmappend = no                                # Don't ask for confirmation when saving a message
 set realname="Sebastian Rollén"                       # Display name
+set signature="~/.mutt/signature"                     # Add email signature
 set use_from=yes                                      # Automatically generate From header (used by msmtp)
 set envelope_from=yes                                 # Set envelope sender on message (used by msmtp)
 set sendmail_wait = -1                                # Don't wait for send mail delivery, as that is handled by msmtp
