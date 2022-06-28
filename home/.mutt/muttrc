@@ -52,9 +52,9 @@ set ssl_usesystemcerts = yes                          # Use system-wide certs
 
 # Send a notification through terminal-notifier when a new mail arrives
 set new_mail_command="terminal-notifier -title '%v' -subtitle 'New Mail' \
--message '%n new messages, %u unread.' -activate 'com.apple.Terminal'"
+-message '%n new messages, %u unread.' -activate 'io.alacritty'"
 
-macro index G "!mbsync -a^M" "Update through mbsync"
+macro index G "!mbsync -a^M<sync-mailbox>" "Update through mbsync"
 macro index gd "<change-folder>$postponed<enter>" "go to drafts"
 macro index gs "<change-folder>$record<enter>" "go to sent"
 macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
@@ -65,3 +65,4 @@ macro attach I "<pipe-message>khal import<return>" "import .ics file to khal"
 macro compose a "<pgp-menu>s<attach-file>" "sign email and add attachment"
 bind pager j next-line     # Use vim bindings for navigating in mail
 bind pager k previous-line # Use vim bindings for navigating in mail
+bind pager r group-chat-reply

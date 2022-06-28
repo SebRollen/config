@@ -6,6 +6,7 @@ homeshick --quiet refresh # Check if homeshick castles have been refreshed recen
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval "$(starship init zsh)"
 eval "$(mcfly init zsh)"
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source "/opt/homebrew/opt/homeshick/homeshick.sh"
