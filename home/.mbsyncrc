@@ -9,6 +9,7 @@ User seb@rollen.io
 PassCmd "pass AppPassword/fastmail/offlineimap"
 SSLType IMAPS
 SSLVersions TLSv1.2
+AuthMechs LOGIN
 
 IMAPStore personal-remote
 Account personal
