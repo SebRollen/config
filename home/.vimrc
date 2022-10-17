@@ -101,7 +101,8 @@ highlight clear SignColumn
 
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
-nnoremap <leader>f :FZF<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>r :RG<CR>
 nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>u :Urlview<CR>
 " <leader><leader> toggles between buffers
