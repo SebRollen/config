@@ -77,7 +77,7 @@ let g:snips_author="Sebastian Rollen"
 
 let g:nnn#set_default_mappings=0
 let g:nnn#layout={'window': {'width': 0.9, 'height': 0.6}}
-nnoremap <leader>n :NnnPicker %:p:h<CR>
+let g:nnn#command='nnn -oA'
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -101,6 +101,7 @@ highlight clear SignColumn
 
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
+nnoremap <leader>n :NnnPicker %:p:h<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>r :RG<CR>
 nnoremap <leader>p :set paste!<CR>
