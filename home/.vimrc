@@ -50,19 +50,23 @@ else
 endif
 
 call plug#begin()
-Plug 'JuliaEditorSupport/julia-vim'
+Plug 'sheerun/vim-polyglot'
+"Plug 'JuliaEditorSupport/julia-vim'
 Plug 'mcchrish/nnn.vim' " File navigator
 Plug 'dense-analysis/ale' " Linting
 Plug 'airblade/vim-gitgutter'
-Plug 'rust-lang/rust.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'ziglang/zig.vim'
+"Plug 'rust-lang/rust.vim'
+"Plug 'pangloss/vim-javascript'
+"Plug 'ziglang/zig.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-sleuth'
+"Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'strboul/urlview.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -84,9 +88,9 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:rustfmt_autosave=1
 
-let g:ale_linters = {'rust': ['analyzer'], 'zig': ['zls'], 'ruby': ['rubocop']}
+let g:ale_linters = {'rust': ['analyzer'], 'zig': ['zls'], 'ruby': ['standardrb', 'rubocop'], 'javascript': ['eslint']}
 let g:ale_linters_explicit = 1
-let g:ale_fixers = {'ruby': ['standardrb', 'rubocop']}
+let g:ale_fixers = {'ruby': ['standardrb', 'rubocop'], 'javascript': ['eslint']}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
@@ -99,7 +103,9 @@ highlight ALEErrorSign ctermfg=red
 highlight ALEWarningSign ctermfg=yellow
 highlight clear SignColumn
 
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
 
 nnoremap <leader>n :NnnPicker %:p:h<CR>
 nnoremap <leader>f :Files<CR>
