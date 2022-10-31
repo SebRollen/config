@@ -5,3 +5,4 @@ import:
   - ~/.config/alacritty/key_bindings.yml
   - ~/.config/alacritty/hints.yml
   - ~/.config/alacritty/shell.yml
+  - ~/.config/alacritty/window.yml
