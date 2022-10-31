@@ -51,22 +51,16 @@ endif
 
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
-"Plug 'JuliaEditorSupport/julia-vim'
 Plug 'mcchrish/nnn.vim' " File navigator
 Plug 'dense-analysis/ale' " Linting
 Plug 'airblade/vim-gitgutter'
-"Plug 'rust-lang/rust.vim'
-"Plug 'pangloss/vim-javascript'
-"Plug 'ziglang/zig.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
-"Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'strboul/urlview.vim'
 Plug 'arcticicestudio/nord-vim'
