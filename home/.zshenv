@@ -11,4 +11,5 @@ BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING=
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/lipq/bin:$PATH"
 export FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH

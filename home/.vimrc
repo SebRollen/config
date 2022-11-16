@@ -49,6 +49,12 @@ else
 
 endif
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'mcchrish/nnn.vim' " File navigator
@@ -137,4 +143,4 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+            \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
