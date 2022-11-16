@@ -82,8 +82,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:rustfmt_autosave=1
 
-let g:ale_linters = {'rust': ['analyzer'], 'zig': ['zls'], 'ruby': ['standardrb', 'rubocop'], 'javascript': ['eslint']}
-let g:ale_linters_explicit = 1
 let g:ale_fixers = {'ruby': ['standardrb', 'rubocop'], 'javascript': ['eslint']}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
@@ -97,9 +95,8 @@ highlight ALEErrorSign ctermfg=red
 highlight ALEWarningSign ctermfg=yellow
 highlight clear SignColumn
 
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ }
+let g:LanguageClient_serverCommands = {'ruby': ['~/.rbenv/shims/solargraph', 'stdio'] }
+let g:ale_completion_enabled=1
 
 nnoremap <leader>n :NnnPicker %:p:h<CR>
 nnoremap <leader>f :Files<CR>
