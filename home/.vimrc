@@ -101,7 +101,7 @@ highlight ALEErrorSign ctermfg=red
 highlight ALEWarningSign ctermfg=yellow
 highlight clear SignColumn
 
-let g:LanguageClient_serverCommands = {'ruby': ['~/.rbenv/shims/solargraph', 'stdio'] }
+let g:LanguageClient_serverCommands = {'ruby': ['~/.rbenv/shims/solargraph', 'stdio'], 'rust': ['rust-analyzer'] }
 let g:ale_completion_enabled=1
 
 nnoremap <leader>n :NnnPicker %:p:h<CR>

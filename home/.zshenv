@@ -12,4 +12,5 @@ export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SO
 export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/lipq/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
