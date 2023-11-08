@@ -12,7 +12,7 @@
 [init]
     defaultBranch = main
 [commit]
-	gpgsign = true
+	gpgsign = false
 [core]
     editor = "vim -c 'set spell spelllang=en_us,sv'"
 [alias]
