@@ -2,7 +2,13 @@
 [user]
 	name = Sebastian Rollen
 	email = seb@rollen.io
-	signingkey = 26FCF00D879D9AA0E20B39A7ED49A5F124D1D673
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4VBixnN/fc8EEYqTU5wg0GxwObSofyickZPnE8M6jS
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
 [credential]
 	helper = osxkeychain
 [pager]
@@ -11,10 +17,8 @@
 	rebase = true
 [init]
     defaultBranch = main
-[commit]
-	gpgsign = false
 [core]
     editor = "vim -c 'set spell spelllang=en_us,sv'"
 [alias]
-	count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
+    count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
     amend = "commit --amend --no-verify"
