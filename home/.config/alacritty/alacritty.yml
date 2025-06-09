@@ -6,3 +6,6 @@ import:
   - ~/.config/alacritty/hints.yml
   - ~/.config/alacritty/shell.yml
   - ~/.config/alacritty/window.yml
+
+env:
+  TERM: xterm-256color

@@ -27,6 +27,7 @@ Expunge Both
 CopyArrivalDate yes
 Sync All
 Create Near
+Remove Near
 SyncState *
 
 # -----------------------------------------------------------------------

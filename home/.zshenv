@@ -3,6 +3,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export GPG_TTY="$(TTY)"
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2
+export MCFLY_PROMPT="❯"
 . "$HOME/.cargo/env"
 export TERM="alacritty"
 

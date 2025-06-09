@@ -16,7 +16,8 @@ source $(brew --prefix)/share/zsh/site-functions/_todoist_fzf
 #######################################################################
 #                               Aliases                               #
 #######################################################################
-alias ls=exa
+alias vim=nvim
+alias ls=eza
 alias veracrypt="/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text"
 alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'
 alias vim=nvim
@@ -29,3 +30,14 @@ export NVM_DIR="$HOME/.nvm"
 HEROKU_AC_ZSH_SETUP_PATH=/Users/rollen/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 export LANG="en_US.UTF-8"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+eval $(thefuck --alias)
+
+# https://github.com/rails/rails/issues/38560
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export DISABLE_SPRING=true
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$(brew --prefix)/opt/postgresql@15/bin:$PATH"
+export PATH="/Users/rollen/bin:$PATH"
+
+. "$HOME/.local/bin/env"
