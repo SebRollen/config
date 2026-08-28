@@ -15,4 +15,8 @@ export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/lipq/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+# Added by Radicle.
+export PATH="$PATH:/Users/rollen/.radicle/bin"

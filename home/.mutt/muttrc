@@ -1,6 +1,6 @@
 # Re-source config files when switching folders
-folder-hook 'account-personal.rc' 'source ~/.mutt/account-personal.rc' 
-folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc' 
+folder-hook 'account-personal.rc' 'source ~/.mutt/account-personal.rc'
+folder-hook 'account-commonpaper.rc' 'source ~/.mutt/account-commonpaper.rc'
 #
 # Macros for switching accounts
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account-personal.rc<enter><change-folder>!<enter>'
@@ -43,6 +43,7 @@ set collapse_unread="no"                              # Don't collapse a thread 
 set sort = "reverse-threads"                          # Group messages by thread
 set sort_aux="last-date-received"                     # Set newest messages in threads first
 set query_command = "khard email --parsable %s"       # Use khard as the address book
+set sig_on_top                                        # Include signature before quoted emails
 bind editor <Tab> complete-query                      # Use tab to query address book
 set ssl_force_tls = yes                               # Always use TLS
 set ssl_starttls = yes                                # Negotiate TLS after initial unencrypted connection

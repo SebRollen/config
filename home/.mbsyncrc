@@ -57,15 +57,6 @@ Create Near
 SyncState *
 Sync All
 
-Channel commonpaper-default
-Far :commonpaper-remote:
-Near :commonpaper-local:
-Patterns INBOX Github
-Expunge Both
-Create Both
-SyncState *
-Sync All
-
 Channel commonpaper-sent
 Far :commonpaper-remote:"[Gmail]/Sent Mail"
 Near :commonpaper-local:Sent

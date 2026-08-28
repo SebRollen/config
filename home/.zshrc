@@ -11,7 +11,6 @@ test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
 
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source $(brew --prefix)/opt/homeshick/homeshick.sh
-source $(brew --prefix)/share/zsh/site-functions/_todoist_fzf
 
 #######################################################################
 #                               Aliases                               #
@@ -41,3 +40,6 @@ export PATH="$(brew --prefix)/opt/postgresql@15/bin:$PATH"
 export PATH="/Users/rollen/bin:$PATH"
 
 . "$HOME/.local/bin/env"
+#
+# Added by Antigravity CLI installer
+export PATH="/Users/rollen/.local/bin:$PATH"

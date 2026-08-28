@@ -37,6 +37,7 @@ set undodir=~/.vim/undodir
 set directory=~/.vim/swapfiles
 set undolevels=1000
 set termguicolors
+<<<<<<< HEAD
 
 " never fold
 set foldlevel=9999
@@ -54,6 +55,8 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+=======
+>>>>>>> 9927002 (updates)
 
 " Make cursor into vertical bar in INSERT mode
  if exists('$TMUX')
@@ -88,8 +91,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-unimpaired'
 Plug 'strboul/urlview.vim'
 Plug 'arcticicestudio/nord-vim'
+<<<<<<< HEAD
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -99,6 +104,15 @@ Plug 'junegunn/limelight.vim' " Highlight current line. For use with GOyo
 Plug 'skanehira/gh.vim'
 Plug 'danobi/prr', {'rtp': 'vim/'}
 Plug 'tpope/vim-rhubarb'
+=======
+Plug 'vimwiki/vimwiki'
+Plug 'simnalamburt/vim-mundo'
+Plug 'nathangrigg/vim-beancount'
+Plug 'junegunn/goyo.vim'
+Plug 'wuelnerdotexe/vim-astro'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+>>>>>>> 9927002 (updates)
 call plug#end()
 
 colorscheme nord
@@ -109,7 +123,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:snips_author="Sebastian Rollen"
 
 let g:nnn#set_default_mappings=0
-let g:nnn#layout={'window': {'width': 0.9, 'height': 0.6}}
+let g:nnn#layout={'window': {'width': 0.9, 'height': 0.9}}
 let g:nnn#command='nnn -oA'
 
 function! s:goyo_enter()
@@ -135,14 +149,24 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:rustfmt_autosave=1
 
+<<<<<<< HEAD
 let g:ale_linters = {'javascript': ['eslint'], 'rust': ['analyzer', 'cargo']}
 let g:ale_fixers = {'eruby': ['erblint'], 'ruby': ['standardrb', 'rubocop'], 'javascript': ['stylelint', 'eslint'], 'rust': ['rustfmt']}
+=======
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {
+            \'ruby': ['standardrb'],
+            \'javascript': ['eslint'],
+            \'*': ['remove_trailing_lines', 'trim_whitespace']
+            \}
+>>>>>>> 9927002 (updates)
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_set_highlights = 1
+" set completeopt=menu,menuone,popup,noselect,noinsert
 highlight ALEError ctermbg=none ctermfg=red cterm=underline
 highlight ALEWarning ctermbg=none ctermfg=yellow cterm=underline
 highlight ALEErrorSign ctermfg=red
@@ -198,6 +222,7 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 command! -bang -nargs=? -complete=dir Files
+<<<<<<< HEAD
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 "Automatically set up highlighting for `.prr` review files
@@ -224,3 +249,15 @@ augroup END
 
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
+=======
+            \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+let g:fzf_action = {
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit',
+            \ 'ctrl-q': 'fill_quickfix'}
+
+:autocmd Filetype ruby set softtabstop=2
+:autocmd Filetype ruby set sw=2
+:autocmd Filetype ruby set ts=2
+>>>>>>> 9927002 (updates)
